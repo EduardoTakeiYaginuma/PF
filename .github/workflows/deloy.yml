@@ -47,7 +47,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: .demo/demo/Dockerfile
+        file: demo/demo/Dockerfile
         push: true
         tags: eduyaginuma/prova-ci:${{ github.sha }}
 
