@@ -1,4 +1,4 @@
-package jogadorRipoProva.demo;
+package jogadorTipoProva.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
