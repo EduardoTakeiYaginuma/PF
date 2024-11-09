@@ -44,7 +44,7 @@ jobs:
         tags: eduyaginuma/pf-ci:${{ github.sha }}
 
 #-------------------------------------------------------
-    - name: executing remote ssh commands using password
+    - name: Executar comandos remotos via SSH
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST_TEST }}
@@ -52,6 +52,10 @@ jobs:
         key: ${{ secrets.KEY_TEST }}
         port: 22
         script: |
-          docker stop pf
-          docker rm --force pf
+          # Limpar containers, imagens e volumes para liberar espaço
+          docker system prune -af --volumes
+          # Parar e remover o container existente
+          docker stop pf || true
+          docker rm --force pf || true
+          # Rodar o novo container atualizado
           docker run -d -p 8080:8080 --network=pf_ --name pf eduyaginuma/pf-ci:${{ github.sha }}
