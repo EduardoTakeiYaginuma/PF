@@ -27,8 +27,8 @@ public class CarroController {
     }
 
     // Endpoint para listar todos os carros de um dono específico pelo ID do dono
-    @GetMapping("/listar/{id}")
-    public List<Carro> listaCarros(@PathVariable String id) {
+    @GetMapping("/listar")
+    public List<Carro> listaCarros(@RequestParam(required = false) String id) {
         return carroService.listaCarros(id);
     }
 }
