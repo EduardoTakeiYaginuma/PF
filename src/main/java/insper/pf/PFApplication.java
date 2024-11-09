@@ -1,13 +1,13 @@
-package jogadorTipoProva.demo;
+package insper.pf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TipoProvaApplication {
+public class PFApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TipoProvaApplication.class, args);
+		SpringApplication.run(PFApplication.class, args);
 	}
 
 }

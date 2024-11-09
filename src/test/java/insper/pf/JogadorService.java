@@ -1,4 +1,4 @@
-package jogadorTipoProva.demo;
+package insper.pf;
 
 public class JogadorService {
 }

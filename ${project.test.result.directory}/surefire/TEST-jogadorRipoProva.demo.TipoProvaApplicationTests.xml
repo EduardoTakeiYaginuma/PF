@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="jogadorTipoProva.demo.TipoProvaApplicationTests" time="10.008" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="insper.pf.TipoProvaApplicationTests" time="10.008" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -64,9 +64,9 @@
     <property name="java.class.version" value="66.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[TipoProva] "/>
   </properties>
-  <testcase name="contextLoads" classname="jogadorTipoProva.demo.TipoProvaApplicationTests" time="1.937">
-    <system-out><![CDATA[14:42:05.921 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [jogadorTipoProva.demo.TipoProvaApplicationTests]: TipoProvaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:42:06.397 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration jogadorTipoProva.demo.TipoProvaApplication for test class jogadorTipoProva.demo.TipoProvaApplicationTests
+  <testcase name="contextLoads" classname="insper.pf.TipoProvaApplicationTests" time="1.937">
+    <system-out><![CDATA[14:42:05.921 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [insper.pf.TipoProvaApplicationTests]: TipoProvaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:42:06.397 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration insper.pf.PFApplication for test class insper.pf.TipoProvaApplicationTests
 14:42:07.081 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
