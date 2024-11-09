@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarroService {
@@ -42,9 +43,9 @@ public class CarroService {
 
     public List<Carro> listaCarros(String id) {
         if (id != null) {
-            Carro carro = carroRepository.findById(id).get();
-            if (carro != null) {
-                return carroRepository.findAll();
+            Optional<Carro> carroOptional = carroRepository.findById(id);
+            if (carroOptional.isPresent()) {
+                return carroRepository.findByDono(id); // Supondo que você tenha um método para buscar carros pelo dono
             } else {
                 throw new IllegalArgumentException("Carro não encontrado");
             }
