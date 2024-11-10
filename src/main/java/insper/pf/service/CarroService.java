@@ -28,9 +28,9 @@ public class CarroService {
         return carroRepository.save(carro);
     }
 
-    public Carro associarCarroDono(String idCarro, String cpf) {
+    public Carro associarCarroDono(String idCarro, String cpf, String authorization) {
         Carro carro = carroRepository.findById(idCarro).get();
-        Usuario usuario = usuarioService.getUsuario(cpf);
+        Usuario usuario = usuarioService.getUsuario(cpf, authorization);
         if (carro == null) {
             throw new IllegalArgumentException("Carro não encontrado");
         }

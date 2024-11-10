@@ -15,12 +15,20 @@ import org.springframework.http.HttpHeaders;
 @Service
 public class UsuarioService {
 
-    public Usuario getUsuario(String cpf) {
+    public Usuario getUsuario(String cpf, String token) {
         RestTemplate restTemplate = new RestTemplate();
-        Usuario usuario = restTemplate.getForEntity(
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", token);
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Usuario> response = restTemplate.exchange(
                 "http://184.72.80.215/usuario/" + cpf,
-                Usuario.class).getBody();
-        return usuario;
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Usuario>() {}
+        );
+        return response.getBody();
     }
 
     public String login(LoginDTO loginDTO) {

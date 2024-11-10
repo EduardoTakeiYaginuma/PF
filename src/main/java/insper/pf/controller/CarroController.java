@@ -35,8 +35,8 @@ public class CarroController {
 
     // Endpoint para associar um carro a um dono usando o ID do carro e o CPF do dono
     @PostMapping("/associar/{idCarro}/{cpf}")
-    public Carro associarCarroDono(@PathVariable String idCarro, @PathVariable String cpf) {
-        return carroService.associarCarroDono(idCarro, cpf);
+    public Carro associarCarroDono(@PathVariable String idCarro, @PathVariable String cpf, @RequestHeader(name = "Authorization") String authorization) {
+        return carroService.associarCarroDono(idCarro, cpf, authorization);
     }
 
     // Endpoint para listar todos os carros de um dono específico pelo ID do dono
