@@ -25,12 +25,9 @@ public class UsuarioService {
 
     public String login(LoginDTO loginDTO) {
         RestTemplate restTemplate = new RestTemplate();
-        String token = restTemplate.postForEntity(
-                "http://184.72.80.215/usuario/login",
-                loginDTO, String.class).getBody();
-        if (token != null && !token.isEmpty()){
-            throw new IllegalArgumentException("Token inválido");
-        }
+        ResponseEntity<String> response = restTemplate.postForEntity(
+        "http://184.72.80.215/usuario/login", loginDTO, String.class);
+        String token = response.getBody();
 
         //RestTemplate restTemplate_ = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -38,13 +35,13 @@ public class UsuarioService {
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<ReturnUsuarioDTO> response = restTemplate.exchange(
+        ResponseEntity<ReturnUsuarioDTO> response_ = restTemplate.exchange(
                 "http://184.72.80.215/usuario/validate",
                 HttpMethod.GET,
                 entity,
                 new ParameterizedTypeReference<ReturnUsuarioDTO>() {}
         );
-        ReturnUsuarioDTO usuarioDTO = response.getBody();
+        ReturnUsuarioDTO usuarioDTO = response_.getBody();
         if (usuarioDTO == null) {
             throw new IllegalArgumentException("Token inválido");
         }
