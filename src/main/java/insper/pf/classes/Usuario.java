@@ -15,4 +15,5 @@ public class Usuario {
     private String cpf;
     private String email;
     private String password;
+    private String papel;
 }

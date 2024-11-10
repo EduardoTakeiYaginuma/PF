@@ -1,7 +1,10 @@
 package insper.pf.controller;
 
 import insper.pf.classes.Carro;
+import insper.pf.classes.LoginDTO;
+import insper.pf.classes.ReturnUsuarioDTO;
 import insper.pf.service.CarroService;
+import insper.pf.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,16 @@ public class CarroController {
 
     @Autowired
     private CarroService carroService;
+
+    @Autowired
+    private UsuarioService usuarioService;
+
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginDTO dto) {
+        return usuarioService.login(dto);
+    }
+
 
     // Endpoint para criar um carro
     @PostMapping("/criar")
