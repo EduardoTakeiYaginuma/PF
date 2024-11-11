@@ -53,17 +53,21 @@ public class ArtigoService {
 //        return carroRepository.save(carro);
 //    }
 //
-    public List<Artigo> listaArtigos(String id, String token) {
+    public Artigo listaArtigoEspecifico(String id, String token) {
         ReturnUsuarioDTO usuario = usuarioService.validateUser(token);
         if (id != null) {
             Optional<Artigo> artigoOptional = artigoRepository.findById(id);
             if (artigoOptional.isPresent()) {
-                return List.of(artigoOptional.get());
+                return artigoOptional.get();
             } else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Artigo não encontrado");
             }
         }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id inválido");
+    }
 
+    public List<Artigo> listaArtigos(String token) {
+        ReturnUsuarioDTO usuario = usuarioService.validateUser(token);
         return artigoRepository.findAll();
     }
 
