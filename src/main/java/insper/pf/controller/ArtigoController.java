@@ -39,7 +39,7 @@ public class ArtigoController {
 
 
     // Endpoint para listar todos os carros de um dono específico pelo ID do dono
-    @GetMapping("/{id}dd")
+    @GetMapping("/{id}")
     public List<Artigo> listaArtigos(@RequestParam(required = false) String id, @RequestHeader(name = "Authorization") String authorization) {
         return artigoService.listaArtigos(id, authorization);
     }
