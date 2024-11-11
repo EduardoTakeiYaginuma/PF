@@ -8,12 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Getter
 @Setter
-public class Carro {
+public class Artigo {
 
     @Id
     private String id;
-    private String marca;
-    private String modelo;
-    private Integer ano;
-    private Usuario dono;
+    private String nomeAutor;
+    private String titulo;
+    private String resumo;
 }
