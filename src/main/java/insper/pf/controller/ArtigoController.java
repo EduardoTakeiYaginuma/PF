@@ -38,7 +38,7 @@ public class ArtigoController {
     }
 
     @GetMapping("/{id}")
-    public Artigo listaArtigo(@RequestParam(required = false) String id, @RequestHeader(name = "Authorization") String authorization) {
+    public Artigo listaArtigo(@RequestParam(required = true) String id, @RequestHeader(name = "Authorization") String authorization) {
         return artigoService.listaArtigoEspecifico(id, authorization);
     }
 
