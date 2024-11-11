@@ -22,12 +22,7 @@ public class ArtigoService {
     @Autowired
     private UsuarioService usuarioService;
 
-//    @Id
-//    private String id;
-//    //private String autor;
-//    private String titulo;
-//    private String resumo;
-//
+
     public Artigo criarArtigo(Artigo artigo, String token) {
         ReturnUsuarioDTO usuario = usuarioService.validateUser(token);
         if (!usuario.getPapel().equals("ADMIN")) {
@@ -39,20 +34,7 @@ public class ArtigoService {
         artigo.setNomeAutor(usuario.getNome());
         return artigoRepository.save(artigo);
     }
-//
-//    public Artigo associarCarroDono(String idCarro, String cpf, String authorization) {
-//        Artigo carro = carroRepository.findById(idCarro).get();
-//        Usuario usuario = usuarioService.getUsuario(cpf, authorization);
-//        if (carro == null) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Carro não encontrado");
-//        }
-//        if (usuario == null) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não encontrado");
-//        }
-//        carro.setDono(usuario);
-//        return carroRepository.save(carro);
-//    }
-//
+
     public Artigo listaArtigoEspecifico(String id, String token) {
         ReturnUsuarioDTO usuario = usuarioService.validateUser(token);
         if (id != null) {
